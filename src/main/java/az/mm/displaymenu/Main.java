@@ -24,12 +24,12 @@ public class Main {
         System.out.printf("%s%s %s%n", padding, rowNum, name);
         int row = 1;
         if(adjMap.get(pId) != null)
-            for (Submenu f: adjMap.get(pId)) 
-                if (!f.isVisited()) {
-                    f.setVisited(true);
+            for (Submenu s: adjMap.get(pId)) 
+                if (!s.isVisited()) {
+                    s.setVisited(true);
                     String newPadding = padding + "\t";
                     String newRowNum = "".equals(rowNum) ? String.valueOf(row++) : (rowNum + "." + row++);
-                    displayMenu(f.to(), newPadding, newRowNum, f.name());
+                    displayMenu(s.to(), newPadding, newRowNum, s.name());
                 }
     }
 }

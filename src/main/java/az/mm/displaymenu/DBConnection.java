@@ -54,13 +54,13 @@ public class DBConnection {
                 ResultSet rs = preparedStatement.executeQuery();) {
 
             while (rs.next()) {
-                Submenu f = new Submenu(rs.getInt("parent_id"), rs.getInt("id"), rs.getString("name"));
-                if (adjMap.containsKey(f.from())) 
-                    adjMap.get(f.from()).add(f);
+                Submenu s = new Submenu(rs.getInt("parent_id"), rs.getInt("id"), rs.getString("name"));
+                if (adjMap.containsKey(s.from())) 
+                    adjMap.get(s.from()).add(s);
                 else {
-                    List<Submenu> folderList = new LinkedList();
-                    folderList.add(f);
-                    adjMap.put(f.from(), folderList);
+                    List<Submenu> menuList = new LinkedList();
+                    menuList.add(s);
+                    adjMap.put(s.from(), menuList);
                 }
             }
 
